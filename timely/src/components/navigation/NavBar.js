@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { NavLink } from "react-router-dom";
+import PAGES from "./route_constants";
 
 const NavBar = () => {
   return (
@@ -21,12 +22,12 @@ const NavBar = () => {
       <div className='collapse navbar-collapse' id='navbarNavDropdown'>
         <ul className='navbar-nav'>
           <li className='nav-item'>
-            <NavLink className='nav-link' to='/' exact={true}>
+            <NavLink className='nav-link' to={PAGES.home} exact={true}>
               Home
             </NavLink>
           </li>
           <li className='nav-item'>
-            <NavLink className='nav-link' to='/profile'>
+            <NavLink className='nav-link' to={PAGES.profile}>
               Profile
             </NavLink>
           </li>

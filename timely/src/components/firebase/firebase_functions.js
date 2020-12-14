@@ -32,11 +32,13 @@ const readData = (callbackFn) => {
   db.collection(`users`).get().then(q);
 };
 
-const readGroups = (callbackFn) => {
+const readContacts = (callbackFn, userName, groupName) => {
   const q = (querySnapshot) => {
-    querySnapshot.docs.map((group) => callbackFn(Object.keys(group.data())));
+    console.log(querySnapshot.docs);
+    const contacts = querySnapshot.docs.map((group) => group.data());
+    callbackFn(contacts);
   };
-  db.collection(`users`).get().then(q);
+  db.collection(`users/${userName}/${groupName}`).get().then(q);
 };
 
 const getData = (callbackFn) => {
@@ -52,5 +54,5 @@ const getData = (callbackFn) => {
   query.onSnapshot(q);
 };
 
-const all = { addData, readData, readGroups, getData };
+const all = { addData, readData, readContacts, getData };
 export default all;
