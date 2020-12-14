@@ -15,6 +15,7 @@ const Home = ({ setUser, user }) => {
         </button>
       </div>
     );
+
   return <div className='home'>{display}</div>;
 };
 
