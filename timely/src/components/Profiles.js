@@ -15,12 +15,13 @@ const Profiles = ({ user, setGroup, group, setContacts, contacts }) => {
 
   const handleChange = (event) => {
     setGroup(event.target.value);
+    console.log(group);
   };
 
   return (
     <div className='profiles'>
       <h2>Profile Page of {user}!</h2>={" "}
-      <select onChange={(event) => handleChange(event)}>
+      <select value={group} onChange={(event) => handleChange(event)}>
         <option value=''>[Please select a group.]</option>
         <option value='office'>Office</option>
         <option value='family'>Family</option>

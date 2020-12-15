@@ -5,7 +5,7 @@ const Login = ({ setUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setUser(event.target.user.value);
-    // console.log(event.target.user.value);
+    console.log(event.target.user.value);
   };
 
   return (

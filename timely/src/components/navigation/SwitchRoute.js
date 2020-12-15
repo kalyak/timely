@@ -33,7 +33,10 @@ const SwitchRoute = ({
         )}
       />
       <Route path={PAGES.login} render={() => <Login setUser={setUser} />} />
-      <Route path={PAGES.new} render={() => <NewContact user={user} />} />
+      <Route
+        path={PAGES.new}
+        render={() => <NewContact user={user} group={group} />}
+      />
     </Switch>
   );
 };
