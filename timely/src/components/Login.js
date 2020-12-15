@@ -3,7 +3,7 @@ import PAGES from "./navigation/route_constants";
 
 const Login = ({ setUser }) => {
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     setUser(event.target.user.value);
     console.log(event.target.user.value);
   };
