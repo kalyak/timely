@@ -3,10 +3,10 @@ import Login from "./Login";
 import PAGES from "./navigation/route_constants";
 import TimeNow from "./TimeNow";
 
-const Home = ({ setUser, user }) => {
+const Home = ({ setUser, user, setGroup, setContacts }) => {
   const display =
     user === "" ? (
-      <Login setUser={setUser} />
+      <Login setUser={setUser} setGroup={setGroup} setContacts={setContacts} />
     ) : (
       <div>
         <TimeNow user={user} />

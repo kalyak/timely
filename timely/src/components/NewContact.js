@@ -45,6 +45,7 @@ const NewContact = ({ user, group }) => {
       setSelectedZone(timezoneData.zoneName);
       setDisableSubmit(false);
     };
+
     axios
       .get(
         `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=${timezone}&fields=zoneName`

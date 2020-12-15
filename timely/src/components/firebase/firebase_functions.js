@@ -1,3 +1,4 @@
+import axios from "axios";
 import fb from "./firebase_config";
 
 const db = fb.firestore();
@@ -45,11 +46,44 @@ const db = fb.firestore();
 //   query.onSnapshot(q);
 // };
 
-const readContacts = (callbackFn, userName, groupName) => {
+// const getGMTOffset = (timezone, i, setContacts) => {
+//   const qu = (timezoneData) => {
+//     //   setGMTarray((oldArray) => [...oldArray, timezoneData.gmtOffset / 3600]);
+//     console.log(timezone);
+//     console.log(timezoneData.gmtOffset);
+//     ;
+//   };
+
+//   axios
+//     .get(
+//       `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=${timezone}&fields=gmtOffset`
+//     )
+//     .then((response) => {
+//       console.log(response.data);
+//       qu(response.data);
+//     })
+//     .catch(function (error) {
+//       // handle error
+//       console.log(error);
+//     });
+// };
+
+const readContacts = (setContacts, userName, groupName) => {
   const q = (querySnapshot) => {
     console.log(querySnapshot.docs);
-    const contacts = querySnapshot.docs.map((group) => group.data());
-    callbackFn(contacts);
+    const contacts = querySnapshot.docs.map((contact, i) => {
+      // getGMTOffset(contact.data().timezone, i, setContacts);
+
+      return {
+        name: contact.data().name,
+        country: contact.data().country,
+        countrycode: contact.data().countrycode,
+        timezone: contact.data().timezone,
+        gmt: contact.data().gmt,
+        latestGmt: 0,
+      };
+    });
+    setContacts(contacts);
   };
   db.collection(`users/${userName}/${groupName}`).get().then(q);
 };

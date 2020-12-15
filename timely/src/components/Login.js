@@ -9,6 +9,7 @@ const Login = ({ setUser, setGroup, setContacts }) => {
     setUser(event.target.user.value);
     setGroup("");
     setContacts([]);
+
     console.log(event.target.user.value);
     history.push(PAGES.home);
   };

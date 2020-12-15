@@ -18,7 +18,14 @@ const SwitchRoute = ({
       <Route
         path={PAGES.home}
         exact
-        render={() => <Home setUser={setUser} user={user} />}
+        render={() => (
+          <Home
+            setUser={setUser}
+            user={user}
+            setGroup={setGroup}
+            setContacts={setContacts}
+          />
+        )}
       />
       <Route
         path={PAGES.profile}
