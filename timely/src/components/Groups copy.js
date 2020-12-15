@@ -5,39 +5,40 @@ import { useEffect, useState } from "react";
 const Groups = ({ contacts, setContacts }) => {
   console.log("Groups contact", contacts);
 
-  // useEffect(() => {
-  //   console.log("load");
-  //   axios
-  //     .all([
-  //       axios.get(
-  //         `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=Asia/Taipei&fields=gmtOffset`
-  //       ),
-  //       // axios.get(
-  //       //   `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=America/Los_Angeles&fields=gmtOffset`
-  //       // ),
-  //       // axios.get(
-  //       //   `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=Asia/Singapore&fields=gmtOffset`
-  //       // ),
-  //     ])
-  //     .then((latestGMTs) => {
-  //       setContacts((contacts) => [
-  //         ...contacts,
-  //         ...[1],
-  //         { latestGmt: latestGMTs[1] },
-  //       ]);
-  //     });
-  // });
+  const callforUpdate = (timezone, i) => {
+    const updateGMTOffset = (newTimezone, i) => {
+      if (contacts.length !== 0) {
+        console.log("changing");
+        const contactsNew = [...contacts];
+        const contactToChange = { ...contactsNew[i] };
+        contactToChange.latestGmt = newTimezone;
+        contactsNew[i] = contactToChange;
+        setContacts(contactsNew);
+      }
+    };
+
+    axios
+      .get(
+        `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=${timezone}&fields=gmtOffset`
+      )
+      // axios.get(
+      //   `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=America/Los_Angeles&fields=gmtOffset`
+      // ),
+      // axios.get(
+      //   `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=Asia/Singapore&fields=gmtOffset`
+      // ),
+
+      .then((response) => {
+        console.log(response.data.gmtOffset);
+        updateGMTOffset(response.data.gmtOffset, i);
+      });
+  };
 
   useEffect(() => {
     console.log("load");
-    if (contacts.length !== 0) {
-      console.log("changing");
-      const contactsNew = [...contacts];
-      const contactToChange = { ...contactsNew[3] };
-      contactToChange.latestGmt = 5;
-      contactsNew[3] = contactToChange;
-      setContacts(contactsNew);
-    }
+    const latestGmt = contacts.map((contact, i) =>
+      callforUpdate(contact.timezone, i)
+    );
   }, [contacts.length]);
 
   const displayContacts = contacts.map((contact, i) => {
