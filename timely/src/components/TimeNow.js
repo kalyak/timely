@@ -20,7 +20,9 @@ const TimeNow = ({ user }) => {
 
   return (
     <div>
-      <div>{time}</div>
+      <div>
+        Time for {user} is {time}
+      </div>
       {/* <div>{timeGMTOffset}</div> */}
     </div>
   );

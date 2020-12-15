@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom";
-import PAGES from "./navigation/route_constants";
+import { useHistory, withRouter } from "react-router-dom";
 
 const Login = ({ setUser }) => {
+  const history = useHistory();
+
   const handleSubmit = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     setUser(event.target.user.value);
     console.log(event.target.user.value);
+    history.push("/");
   };
 
   return (
@@ -13,9 +15,10 @@ const Login = ({ setUser }) => {
       <label htmlFor='user'>User: </label>
       <input type='text' id='user' />
       <button>
-        <NavLink to={PAGES.home}>Enter</NavLink>
+        {/* <NavLink to={PAGES.home}>Enter</NavLink> */}
+        Enter
       </button>
     </form>
   );
 };
-export default Login;
+export default withRouter(Login);

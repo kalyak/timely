@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import countryCodes from "./country_codes";
 import all from "./firebase/firebase_functions";
+import { NavLink } from "react-router-dom";
+import PAGES from "./navigation/route_constants";
 
 const NewContact = ({ user, group }) => {
   const [zones, setZones] = useState([]);
@@ -53,7 +55,7 @@ const NewContact = ({ user, group }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     // console.log(event.target, user, group);
     all.addContact(event.target, user, group);
   };
@@ -100,7 +102,9 @@ const NewContact = ({ user, group }) => {
         </select>
       </div>
 
-      <button disabled={submitDisabled}>Submit</button>
+      <button disabled={submitDisabled}>
+        <NavLink to={PAGES.profile}>Submit</NavLink>
+      </button>
     </form>
   );
 };
