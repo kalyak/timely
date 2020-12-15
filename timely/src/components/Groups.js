@@ -3,6 +3,7 @@ const Groups = ({ contacts }) => {
     <tr key={contact.name}>
       <td>{contact.name}</td>
       <td>{contact.country}</td>
+      <td>{contact.countrycode}</td>
       <td>{contact.timezone}</td>
     </tr>
   ));
@@ -13,6 +14,7 @@ const Groups = ({ contacts }) => {
         <tr>
           <th scope='col'>Name</th>
           <th scope='col'>Country</th>
+          <th scope='col'>Country Code</th>
           <th scope='col'>Timezone</th>
         </tr>
       </thead>

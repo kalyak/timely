@@ -2,13 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import countryCodes from "./country_codes";
 import all from "./firebase/firebase_functions";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, withRouter } from "react-router-dom";
 import PAGES from "./navigation/route_constants";
 
 const NewContact = ({ user, group }) => {
   const [zones, setZones] = useState([]);
   const [selectedZone, setSelectedZone] = useState({});
   const [submitDisabled, setDisableSubmit] = useState(true);
+  const history = useHistory();
 
   const handleCountrySelect = (event) => {
     event.preventDefault();
@@ -55,9 +56,10 @@ const NewContact = ({ user, group }) => {
   };
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     // console.log(event.target, user, group);
     all.addContact(event.target, user, group);
+    history.push(PAGES.profile);
   };
 
   const countrySelect = countryCodes.map((country) => (
@@ -103,10 +105,11 @@ const NewContact = ({ user, group }) => {
       </div>
 
       <button disabled={submitDisabled}>
-        <NavLink to={PAGES.profile}>Submit</NavLink>
+        {/* <NavLink to={PAGES.profile}>Submit</NavLink> */}
+        Submit
       </button>
     </form>
   );
 };
 
-export default NewContact;
+export default withRouter(NewContact);

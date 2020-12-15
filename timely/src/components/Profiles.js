@@ -28,9 +28,13 @@ const Profiles = ({ user, setGroup, group, setContacts, contacts }) => {
         <option value='discord'>Discord</option>
       </select>
       <Groups contacts={contacts} />
-      <button>
-        <NavLink to={PAGES.new}>New Contact</NavLink>
-      </button>
+      {group !== "" ? (
+        <button>
+          <NavLink to={PAGES.new}>New Contact</NavLink>
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
