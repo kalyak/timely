@@ -56,14 +56,14 @@ const readContacts = (callbackFn, userName, groupName) => {
 
 const addContact = (formData, userName, groupName) => {
   const countrycode = formData["country-select"].value;
-  // const country =
-  //   formData["country-select"].options[formData["country-select"].selectedIndex]
-  //     .text;
+  const country =
+    formData["country-select"].options[formData["country-select"].selectedIndex]
+      .text;
   db.collection(`users/${userName}/${groupName}`)
     .doc(formData.name.value)
     .set({
       name: formData.name.value,
-      // country: country,
+      country: country,
       countrycode: countrycode,
       timezone: formData["zone-select"].value,
     })

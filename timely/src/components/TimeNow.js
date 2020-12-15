@@ -13,7 +13,7 @@ const TimeNow = ({ user }) => {
     const interval = setInterval(() => {
       //   setTime(new Date().toLocaleString());
       setTime(moment().utcOffset("+05:30").format(" hh:mm:ss a"));
-      setTimeGMT(moment().utcOffset("+00:00").format(" hh:mm:ss a") - 21600);
+      setTimeGMT(moment().utcOffset("+00:00").format(" hh:mm:ss a"));
     }, 1000);
     return () => clearInterval(interval);
   });
@@ -21,7 +21,7 @@ const TimeNow = ({ user }) => {
   return (
     <div>
       <div>{time}</div>
-      <div>{timeGMTOffset}</div>
+      {/* <div>{timeGMTOffset}</div> */}
     </div>
   );
 };
