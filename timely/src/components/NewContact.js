@@ -4,11 +4,12 @@ import countryCodes from "./country_codes";
 
 const NewContact = () => {
   const [zones, setZones] = useState([]);
-  //   const [zoneName, setZoneName] = useState("");
+  const [selectedZone, setSelectedZone] = useState({});
 
   const handleCountrySelect = (event) => {
     event.preventDefault();
     setZones(["Retrieving time zones..."]);
+    setSelectedZone({});
 
     const countryCode = event.target.value;
     // console.log(countryCode);
@@ -19,22 +20,29 @@ const NewContact = () => {
 
     axios
       .get(
-        `http://api.timezonedb.com/v2.1/list-time-zone?key=BSB22B2ARR6V&format=json&country=${countryCode}`
+        `http://api.timezonedb.com/v2.1/list-time-zone?key=BSB22B2ARR6V&format=json&country=${countryCode}&fields=zoneName`
       )
       .then((response) => {
-        console.log(response.data.zones);
+        console.log(response.data.zones[0].zoneName);
         q(response.data.zones);
-        // setSearchResult(response.data);
       })
       .catch((error) => {
         console.log("Error");
       });
   };
 
-  //   const handleZoneSelect = (event) => {
-  //     const zoneSelect = event.target.value;
-  //     setZoneName(zoneSelect);
-  //   };
+  const handleZoneSelect = (event) => {
+    event.preventDefault();
+    const timezone = event.target.value;
+    axios
+      .get(
+        `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=${timezone}`
+      )
+      .then((response) => {
+        console.log(response.data);
+        setSelectedZone(response.data);
+      });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -73,13 +81,13 @@ const NewContact = () => {
         <select
           name='zone-select'
           id='zone-select'
-          //   onChange={(event) => handleZoneSelect(event)}
+          onChange={(event) => handleZoneSelect(event)}
         >
           {zoneSelect}
         </select>
       </div>
 
-      <button>Submit</button>
+      <button disabled={selectedZone !== []}>Submit</button>
     </form>
   );
 };
