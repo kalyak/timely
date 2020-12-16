@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./components/navigation/NavBar";
 import SwitchRoute from "./components/navigation/SwitchRoute";
+import dayjs from "dayjs";
+import TimeNow from "./components/TimeNow";
 
 const App = () => {
   const [user, setUser] = useState("");
   const [group, setGroup] = useState("");
   const [contacts, setContacts] = useState([]);
-  const [convertTimeArray, updateTimeArray] = useState([]);
+  const [currentTime, setCurrentTime] = useState({});
 
   return (
     <div className='App'>
       <NavBar />
+      <TimeNow
+        user={user}
+        currentTime={currentTime}
+        setCurrentTime={setCurrentTime}
+      />
+
       <SwitchRoute
         setUser={setUser}
         user={user}
@@ -18,8 +26,8 @@ const App = () => {
         group={group}
         setContacts={setContacts}
         contacts={contacts}
-        updateTimeArray={updateTimeArray}
-        convertTimeArray={convertTimeArray}
+        setCurrentTime={setCurrentTime}
+        timeNow={currentTime}
       />
     </div>
   );

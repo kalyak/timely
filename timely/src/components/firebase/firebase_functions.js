@@ -68,7 +68,7 @@ const db = fb.firestore();
 //     });
 // };
 
-const retrieveContacts = (setContacts, userName, groupName) => {
+const retrieveContacts = (oldContacts, setContacts, userName, groupName) => {
   const q = (querySnapshot) => {
     console.log(querySnapshot.docs);
     const contacts = querySnapshot.docs.map((contact, i) => {
@@ -79,8 +79,11 @@ const retrieveContacts = (setContacts, userName, groupName) => {
         country: contact.data().country,
         countrycode: contact.data().countrycode,
         timezone: contact.data().timezone,
-        gmt: contact.data().gmt,
+        gmt: 0,
+        convertedDate: 0,
         convertedTime: 0,
+        currentDate: 0,
+        currentTime: 0,
       };
     });
     setContacts(contacts);

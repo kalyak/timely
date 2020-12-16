@@ -13,8 +13,8 @@ const SwitchRoute = ({
   group,
   setContacts,
   contacts,
-  updateTimeArray,
-  convertTimeArray,
+  setCurrentTime,
+  currentTime,
 }) => {
   return (
     <Switch>
@@ -39,6 +39,7 @@ const SwitchRoute = ({
             group={group}
             setContacts={setContacts}
             contacts={contacts}
+            currentTime={currentTime}
           />
         )}
       />
@@ -64,8 +65,7 @@ const SwitchRoute = ({
             user={user}
             contacts={contacts}
             setContacts={setContacts}
-            updateTimeArray={updateTimeArray}
-            convertTimeArray={convertTimeArray}
+            currentTime={currentTime}
           />
         )}
       />

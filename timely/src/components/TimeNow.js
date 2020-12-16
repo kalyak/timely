@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
-import moment from "moment";
+import { useEffect } from "react";
+import dayjs from "dayjs";
 
-const TimeNow = ({ user }) => {
-  const [time, setTime] = useState(
-    moment().utcOffset("+08:00").format(" hh:mm:ss a")
-  );
-
+const TimeNow = ({ user, currentTime, setCurrentTime }) => {
   useEffect(() => {
-    const interval = setInterval(() => {
-      //   setTime(new Date().toLocaleString());
-      setTime(moment().utcOffset("+08:00").format(" hh:mm:ss a"));
+    const timer = setTimeout(() => {
+      const date = dayjs().format("ddd, DD MMM YYYY");
+      const time = dayjs().format("hh:mm:ss A");
+      setCurrentTime({ date: date, time: time });
     }, 1000);
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   });
 
   return (
     <div>
-      Time for {user} is {time}
+      Welcome {user}, it is now {currentTime.time} on {currentTime.date}
+      {/* Welcome {user}, it is now {currentTime} */}
     </div>
   );
 };
