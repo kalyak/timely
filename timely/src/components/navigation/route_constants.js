@@ -3,6 +3,7 @@ const PAGES = {
   profile: "/profile",
   login: "/login",
   new: "/new",
+  dayjs: "/daysjs",
 };
 
 export default PAGES;

@@ -6,6 +6,7 @@ const App = () => {
   const [user, setUser] = useState("");
   const [group, setGroup] = useState("");
   const [contacts, setContacts] = useState([]);
+  const [convertTimeArray, updateTimeArray] = useState([]);
 
   return (
     <div className='App'>
@@ -17,6 +18,8 @@ const App = () => {
         group={group}
         setContacts={setContacts}
         contacts={contacts}
+        updateTimeArray={updateTimeArray}
+        convertTimeArray={convertTimeArray}
       />
     </div>
   );

@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+import What from "../ConvertTime";
 import Home from "../Home";
 import Login from "../Login";
 import NewContact from "../NewContact";
@@ -12,6 +13,8 @@ const SwitchRoute = ({
   group,
   setContacts,
   contacts,
+  updateTimeArray,
+  convertTimeArray,
 }) => {
   return (
     <Switch>
@@ -52,6 +55,19 @@ const SwitchRoute = ({
       <Route
         path={PAGES.new}
         render={() => <NewContact user={user} group={group} />}
+      />
+
+      <Route
+        path={PAGES.dayjs}
+        render={() => (
+          <What
+            user={user}
+            contacts={contacts}
+            setContacts={setContacts}
+            updateTimeArray={updateTimeArray}
+            convertTimeArray={convertTimeArray}
+          />
+        )}
       />
     </Switch>
   );

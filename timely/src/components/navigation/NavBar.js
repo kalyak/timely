@@ -32,9 +32,9 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'>
-              Pricing
-            </a>
+            <NavLink className='nav-link' to={PAGES.dayjs}>
+              Convert Time
+            </NavLink>
           </li>
           <li className='nav-item dropdown'>
             <a
