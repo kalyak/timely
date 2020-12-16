@@ -5,7 +5,7 @@ import all from "./firebase/firebase_functions";
 import Groups from "./Groups";
 import PAGES from "./navigation/route_constants";
 import TimeNow from "./TimeNow";
-const Profiles = ({
+const Contacts = ({
   user,
   setGroup,
   group,
@@ -14,7 +14,7 @@ const Profiles = ({
   currentTime,
 }) => {
   useEffect(() => {
-    console.log("PROFILES");
+    console.log("Contacts");
     if (user !== "" && group !== "") {
       all.retrieveContacts(contacts, setContacts, user, group);
       console.log("Contacts", contacts);
@@ -28,8 +28,8 @@ const Profiles = ({
   };
 
   return (
-    <div className='profiles'>
-      <h2>Profile Page of {user}!</h2>
+    <div className='contacts'>
+      <h2>Contact Page of {user}!</h2>
       <select value={group} onChange={(event) => handleChange(event)}>
         <option value=''>[Please select a group.]</option>
         <option value='office'>Office</option>
@@ -55,4 +55,4 @@ const Profiles = ({
   );
 };
 
-export default Profiles;
+export default Contacts;

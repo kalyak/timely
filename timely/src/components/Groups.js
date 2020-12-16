@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import dayjs from "dayjs";
 
 const Groups = ({ contacts, setContacts, currentTime }) => {
+  // console.log("Groups contact", contacts);
+
   const ConvertTime = (timezone) => {
     console.log("retrieving", timezone);
     return dayjs(currentTime).tz(timezone);
   };
 
   useEffect(() => {
-    console.log("Groups contact", contacts);
     if (contacts.length !== 0) {
       const convertTimeArray = contacts.map((contact, i) =>
         ConvertTime(contact.timezone)

@@ -3,7 +3,7 @@ import What from "../ConvertTime";
 import Home from "../Home";
 import Login from "../Login";
 import NewContact from "../NewContact";
-import Profiles from "../Profiles";
+import Contacts from "../Contacts";
 import PAGES from "./route_constants";
 
 const SwitchRoute = ({
@@ -33,7 +33,7 @@ const SwitchRoute = ({
       <Route
         path={PAGES.profile}
         render={() => (
-          <Profiles
+          <Contacts
             user={user}
             setGroup={setGroup}
             group={group}

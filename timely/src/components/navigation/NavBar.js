@@ -23,12 +23,12 @@ const NavBar = () => {
         <ul className='navbar-nav'>
           <li className='nav-item'>
             <NavLink className='nav-link' to={PAGES.home} exact={true}>
-              Home
+              Profile
             </NavLink>
           </li>
           <li className='nav-item'>
             <NavLink className='nav-link' to={PAGES.profile}>
-              Profile
+              Contacts
             </NavLink>
           </li>
           <li className='nav-item'>
