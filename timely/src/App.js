@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ContactForm from "./components/ContactUs";
 import NavBar from "./components/navigation/NavBar";
 import SwitchRoute from "./components/navigation/SwitchRoute";
 import TimeNow from "./components/TimeNow";
