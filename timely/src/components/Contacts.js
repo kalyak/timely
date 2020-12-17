@@ -31,20 +31,46 @@ const Contacts = ({
       <h2>Contact Page of {user}!</h2>
       <select value={group} onChange={(event) => handleChange(event)}>
         <option value=''>[Please select a group.]</option>
-        <option value='office'>Office</option>
+        <option value='colleagues'>Colleagues</option>
         <option value='family'>Family</option>
-        <option value='discord'>Discord</option>
+        <option value='discord'>Friends</option>
       </select>
 
-      {contacts.length !== 0 ? (
-        <div className='groups'>
-          <Groups
-            contacts={contacts}
-            setContacts={setContacts}
-            currentTime={currentTime}
-          />
+      {/* <div className='group_selection'>
+      {group !== "" ? (
+        
+          (contacts.length !== 0 ? (
+          <div className='groups'>
+            <Groups
+              contacts={contacts}
+              setContacts={setContacts}
+              currentTime={currentTime}
+            />
+          </div>
+          ) : (<div className='no_contacts'>"No contacts found."</div>))
           <button>
-            <NavLink to={PAGES.new}>New Contact</NavLink>
+            <NavLink to={PAGES.newContact}>New Contact</NavLink>
+          </button>
+      ) : (
+        ""
+      )}
+      </div> */}
+
+      {group !== "" ? (
+        <div>
+          {contacts.length !== 0 ? (
+            <div className='groups'>
+              <Groups
+                contacts={contacts}
+                setContacts={setContacts}
+                currentTime={currentTime}
+              />
+            </div>
+          ) : (
+            <div className='no_contacts'>No contacts found.</div>
+          )}
+          <button>
+            <NavLink to={PAGES.newContact}>New Contact</NavLink>
           </button>
         </div>
       ) : (

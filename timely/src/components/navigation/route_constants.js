@@ -2,8 +2,9 @@ const PAGES = {
   home: "/",
   profile: "/profile",
   login: "/login",
-  new: "/new",
-  dayjs: "/daysjs",
+  newContact: "/newcontact",
+  convert: "/convert",
+  newUser: "/newuser",
 };
 
 export default PAGES;

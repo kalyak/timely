@@ -41,6 +41,8 @@ const Groups = ({ contacts, setContacts, currentTime }) => {
           {getUnicodeFlagIcon(contact.countrycode.toUpperCase())}
         </td>
         <td>{contact.timezone}</td>
+        <td>{contact.email}</td>
+
         {/* <td>{contact.gmt}</td>
         <td>{contact.latestGmt}</td> */}
       </tr>
@@ -55,6 +57,8 @@ const Groups = ({ contacts, setContacts, currentTime }) => {
           <th scope='col'>Country</th>
           <th scope='col'>Country Code</th>
           <th scope='col'>Timezone</th>
+          <th scope='col'>Email</th>
+
           {/* <th scope='col'>GMT</th>
           <th scope='col'>GMT / UTC</th> */}
         </tr>

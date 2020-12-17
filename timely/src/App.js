@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ContactForm from "./components/ContactUs";
 import NavBar from "./components/navigation/NavBar";
 import SwitchRoute from "./components/navigation/SwitchRoute";
 import TimeNow from "./components/TimeNow";
@@ -8,6 +9,8 @@ const App = () => {
   const [group, setGroup] = useState("");
   const [contacts, setContacts] = useState([]);
   const [currentTime, setCurrentTime] = useState({});
+  const [currTimezone, setCurrTimezone] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   return (
     <div className='App'>
@@ -16,6 +19,7 @@ const App = () => {
         user={user}
         currentTime={currentTime}
         setCurrentTime={setCurrentTime}
+        currTimezone={currTimezone}
       />
 
       <SwitchRoute
@@ -27,9 +31,18 @@ const App = () => {
         contacts={contacts}
         setCurrentTime={setCurrentTime}
         timeNow={currentTime}
+        currTimezone={currTimezone}
+        setCurrTimezone={setCurrTimezone}
+        userEmail={userEmail}
+        setUserEmail={setUserEmail}
       />
     </div>
   );
+  // return (
+  //   <div>
+  //     <ContactForm />
+  //   </div>
+  // );
 };
 
 export default App;

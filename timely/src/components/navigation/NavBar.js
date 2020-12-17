@@ -4,9 +4,9 @@ import PAGES from "./route_constants";
 
 const NavBar = () => {
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <a className='navbar-brand' href='#'>
-        Navbar
+        Timely
       </a>
       <button
         className='navbar-toggler'
@@ -32,11 +32,11 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li className='nav-item'>
-            <NavLink className='nav-link' to={PAGES.dayjs}>
+            <NavLink className='nav-link' to={PAGES.convert}>
               Convert Time
             </NavLink>
           </li>
-          <li className='nav-item dropdown'>
+          {/* <li className='nav-item dropdown'>
             <a
               className='nav-link dropdown-toggle'
               href='#'
@@ -62,7 +62,7 @@ const NavBar = () => {
                 Something else here
               </a>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

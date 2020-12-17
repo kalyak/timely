@@ -5,6 +5,7 @@ import Login from "../Login";
 import NewContact from "../NewContact";
 import Contacts from "../Contacts";
 import PAGES from "./route_constants";
+import NewUser from "../NewUser";
 
 const SwitchRoute = ({
   setUser,
@@ -15,6 +16,10 @@ const SwitchRoute = ({
   contacts,
   setCurrentTime,
   currentTime,
+  currTimezone,
+  setCurrTimezone,
+  userEmail,
+  setUserEmail,
 }) => {
   return (
     <Switch>
@@ -50,16 +55,18 @@ const SwitchRoute = ({
             setUser={setUser}
             setGroup={setGroup}
             setContacts={setContacts}
+            setCurrTimezone={setCurrTimezone}
+            setUserEmail={setUserEmail}
           />
         )}
       />
       <Route
-        path={PAGES.new}
+        path={PAGES.newContact}
         render={() => <NewContact user={user} group={group} />}
       />
 
       <Route
-        path={PAGES.dayjs}
+        path={PAGES.convert}
         render={() => (
           <What
             user={user}
@@ -69,6 +76,10 @@ const SwitchRoute = ({
           />
         )}
       />
+
+      <Route path={PAGES.newUser}>
+        <NewUser />
+      </Route>
     </Switch>
   );
 };

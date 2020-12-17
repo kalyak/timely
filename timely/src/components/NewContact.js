@@ -58,6 +58,10 @@ const NewContact = ({ user, group }) => {
         <label htmlFor='name'>Name: </label>
         <input id='name' name='name' required />
       </div>
+      <div className='email-input'>
+        <label htmlFor='email'>Email: </label>
+        <input type='email' name='email' id='email' />
+      </div>
 
       <div className='country-select-menu'>
         <select
