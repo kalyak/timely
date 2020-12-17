@@ -19,8 +19,8 @@ const NewContact = ({ user, group }) => {
 
     const countryCode = event.target.value;
     // console.log(countryCode);
-    const q = (countryResults) => {
-      const zonenames = countryResults.map((zone) => zone.zoneName);
+    const q = (zoneResults) => {
+      const zonenames = zoneResults.map((zone) => zone.zoneName);
       setZones(zonenames);
     };
 

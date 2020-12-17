@@ -12,13 +12,13 @@ import "firebase/firestore";
 // };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCrPr9G3BEmllbocucqyNNrjpbgUkCSOoQ",
-  authDomain: "ga-lessons.firebaseapp.com",
-  projectId: "ga-lessons",
-  storageBucket: "ga-lessons.appspot.com",
-  messagingSenderId: "141638687704",
-  appId: "1:141638687704:web:26106a2db3cdfea86a70ad",
-  measurementId: "G-QGK3HDFSRK",
+  apiKey: process.env.REACT_APP_FIREBASE_apiKey,
+  authDomain: process.env.REACT_APP_FIREBASE_authDomain,
+  projectId: process.env.REACT_APP_FIREBASE_projectId,
+  storageBucket: process.env.REACT_APP_FIREBASE_storageBucket,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_messagingSenderId,
+  appId: process.env.REACT_APP_FIREBASE_appId,
+  measurementId: process.env.REACT_APP_FIREBASE_measurementId,
 };
 
 // Initialize Firebase
