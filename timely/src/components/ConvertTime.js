@@ -10,7 +10,7 @@ import Groups from "./Groups_conversion";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const What = ({ user, contacts, setContacts, currentTime }) => {
+const What = ({ user, contacts, setContacts }) => {
   const [time, timeToConvert] = useState(dayjs().format("YYYY-MM-DD HH:mm"));
 
   const ConvertTime = (timezone) => {
@@ -38,7 +38,7 @@ const What = ({ user, contacts, setContacts, currentTime }) => {
     }
   }, [contacts.length, time]);
 
-  return (
+  return user !== "" ? (
     <div>
       <div className='h2 text-center'>Convert Time</div>
 
@@ -57,6 +57,10 @@ const What = ({ user, contacts, setContacts, currentTime }) => {
 
       <Groups contacts={contacts} setContacts={setContacts} />
     </div>
+  ) : (
+    <h2 className='text-center mt-3'>
+      Please select a user in the Profile Page first.
+    </h2>
   );
 };
 
