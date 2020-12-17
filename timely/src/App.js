@@ -15,6 +15,7 @@ const App = () => {
     <div className='App'>
       <NavBar />
       <TimeNow
+        className='mt-3'
         user={user}
         currentTime={currentTime}
         setCurrentTime={setCurrentTime}

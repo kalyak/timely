@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
+import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
 const Groups = ({ contacts, setContacts }) => {
   useEffect(() => {
@@ -11,7 +12,10 @@ const Groups = ({ contacts, setContacts }) => {
       <tr key={contact.name}>
         <td>{contact.name}</td>
         <td>{contact.country}</td>
-        <td>{contact.countrycode}</td>
+        <td>
+          {contact.countrycode}{" "}
+          {getUnicodeFlagIcon(contact.countrycode.toUpperCase())}
+        </td>
         <td>{contact.timezone}</td>
         <td>{contact.gmt}</td>
         <td>{contact.convertedDate}</td>
@@ -21,7 +25,7 @@ const Groups = ({ contacts, setContacts }) => {
   });
 
   return (
-    <table className='table'>
+    <table className='table table-striped'>
       <thead>
         <tr>
           <th scope='col'>Name</th>

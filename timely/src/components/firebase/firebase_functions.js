@@ -46,27 +46,37 @@ const addContact = (formData, userName, groupName) => {
     });
 };
 
-const addUser = (userName) => {
+const addUser = (formData) => {
+  const countrycode = formData["country-select"].value;
+  const country =
+    formData["country-select"].options[formData["country-select"].selectedIndex]
+      .text;
   db.collection(`users`)
-    .doc(userName)
-    .set({ name: userName })
+    .doc(formData.name.value)
+    .set({
+      name: formData.name.value,
+      email: formData.email.value,
+      country: country,
+      countrycode: countrycode,
+      timezone: formData["zone-select"].value,
+    })
     .then((docRef) => {
-      console.log("Document written with ID: ", userName);
+      console.log("Document written with ID: ", formData.name.value);
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
 };
 
-const retrieveUser = (userName, setCurrTimezone, setUserEmail) => {
-  console.log(setCurrTimezone);
+const retrieveUser = (userName, setUserTime) => {
+  console.log(setUserTime);
   db.collection(`users`)
     .doc(userName)
     .get()
     .then((DocumentSnapshot) => {
       console.log(DocumentSnapshot.data());
-      setCurrTimezone(DocumentSnapshot.data().timezone);
-      setUserEmail(DocumentSnapshot.data().email);
+      // setCurrTimezone(DocumentSnapshot.data().timezone);
+      setUserTime(DocumentSnapshot.data());
     })
     .catch((error) => {
       console.error("Error adding document: ", error);

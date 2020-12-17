@@ -69,18 +69,20 @@ const What = ({ user, contacts, setContacts, currentTime }) => {
 
   return (
     <div>
-      <h2>Convert Time</h2>
+      <div className='h2 text-center'>Convert Time</div>
 
-      <form>
-        <label htmlFor='date-picker'>Convert from: </label>
-        <Datetime
-          id='date-picker'
-          initialValue={time}
-          onChange={(response) => {
-            timeToConvert(response.format("YYYY-MM-DD HH:mm"));
-          }}
-        />
-      </form>
+      <div className='convert-select row justify-content-center text-center'>
+        <form>
+          <label htmlFor='date-picker'>Convert from: </label>
+          <Datetime
+            id='date-picker'
+            initialValue={time}
+            onChange={(response) => {
+              timeToConvert(response.format("YYYY-MM-DD HH:mm"));
+            }}
+          />
+        </form>
+      </div>
 
       <Groups contacts={contacts} setContacts={setContacts} />
     </div>

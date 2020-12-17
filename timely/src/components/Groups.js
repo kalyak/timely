@@ -37,7 +37,7 @@ const Groups = ({ contacts, setContacts, currentTime }) => {
         <td>{contact.name}</td>
         <td>{contact.country}</td>
         <td>
-          {contact.countrycode}{" "}
+          {contact.countrycode}
           {getUnicodeFlagIcon(contact.countrycode.toUpperCase())}
         </td>
         <td>{contact.timezone}</td>
@@ -50,7 +50,7 @@ const Groups = ({ contacts, setContacts, currentTime }) => {
   });
 
   return (
-    <table className='table'>
+    <table className='table table-striped'>
       <thead>
         <tr>
           <th scope='col'>Name</th>

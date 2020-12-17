@@ -16,7 +16,15 @@ const Login = ({
     setUser(event.target.user.value);
     setGroup("");
     setContacts([]);
-    all.retrieveUser(event.target.user.value, setCurrTimezone, setUserEmail);
+
+    const setUserTime = (data) => {
+      console.log(setUserEmail);
+      setUserEmail(data.email);
+      setCurrTimezone(data.timezone);
+    };
+
+    all.retrieveUser(event.target.user.value, setUserTime);
+
     console.log(event.target.user.value);
     history.push(PAGES.home);
   };
@@ -32,13 +40,13 @@ const Login = ({
         <p>
           Welcome to Timely! For exisiting users, please enter your name here.
         </p>
-        <div class='form-group row'>
+        <div className='form-group row'>
           <div className='col-sm-4'></div>
-          <label htmlFor='user' class='col-sm-1 col-form-label'>
+          <label htmlFor='user' className='col-sm-1 col-form-label'>
             User:
           </label>
-          <div class='col-sm-3'>
-            <input type='text' class='form-control' id='user' />
+          <div className='col-sm-3'>
+            <input type='text' className='form-control' id='user' />
             <div className='col-sm-4'></div>
           </div>
         </div>
