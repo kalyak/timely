@@ -34,7 +34,7 @@ const Contacts = ({
     history.push(PAGES.newContact);
   };
 
-  return (
+  return user !== "" ? (
     <div className='contacts container '>
       <h2 className='text-center'>Contact Page of {user}!</h2>
 
@@ -84,6 +84,10 @@ const Contacts = ({
         ""
       )}
     </div>
+  ) : (
+    <h2 className='text-center mt-3'>
+      Please select a user in the Profile Page first.
+    </h2>
   );
 };
 
