@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import Login from "./Login";
 import PAGES from "./navigation/route_constants";
-import { useHistory, withRouter } from "react-router-dom";
 
 const Home = ({ setUser, user, setGroup, setContacts }) => {
   const history = useHistory();

@@ -12,7 +12,7 @@ const getSubCollections = fb.functions().httpsCallable("getSubCollections");
 getSubCollections({ docPath: "users/kalya" })
   .then(function (result) {
     const collections = result.data.collections;
-    console.log(collections);
+    //console.log(collections);
   })
   .catch(function (error) {
     // Getting the Error details.
@@ -20,7 +20,7 @@ getSubCollections({ docPath: "users/kalya" })
     // var message = error.message;
     // var details = error.details;
     // ...
-    console.log("error");
+    //console.log("error");
   });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +34,7 @@ const addData = (formData) =>
       stock: formData.stock.value,
     })
     .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
+      //console.log("Document written with ID: ", docRef.id);
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
@@ -44,7 +44,7 @@ const readData = (callbackFn) => {
   const q = (querySnapshot) => {
     // const items = [];
     // querySnapshot.forEach((doc) => {
-    //   // console.log(`${doc.id} => ${doc.data()}`);
+    //   // //console.log(`${doc.id} => ${doc.data()}`);
     //   items.push(doc.data());
     // });
 

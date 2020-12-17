@@ -18,19 +18,19 @@ const Login = ({
     setContacts([]);
 
     const setUserTime = (data) => {
-      console.log(setUserEmail);
+      //console.log(setUserEmail);
       setUserEmail(data.email);
       setCurrTimezone(data.timezone);
     };
 
     all.retrieveUser(event.target.user.value, setUserTime);
 
-    console.log(event.target.user.value);
+    //console.log(event.target.user.value);
     history.push(PAGES.home);
   };
 
   const handleCreation = () => {
-    console.log("new user");
+    //console.log("new user");
     history.push(PAGES.newUser);
   };
 

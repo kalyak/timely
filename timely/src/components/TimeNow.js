@@ -30,17 +30,7 @@ const TimeNow = ({ user, currentTime, setCurrentTime, currTimezone }) => {
           Current Time:
           <span className='font-weight-bold'>{currentTime.time}</span>
         </div>
-        {/* <div className='col'>
-          <span className='font-weight-bold'></span>
-        </div>
-        <div className='col'>
-           Location:
-          <span className='font-weight-bold'>{currTimezone}</span>
-        </div> */}
       </div>
-      {/* Welcome {user}, it is now {currentTime.time} on {currentTime.date}. You
-      are in timezone GMT {currentTime.gmt}.
-      Welcome {user}, it is now {currentTime} */}
     </div>
   );
 };

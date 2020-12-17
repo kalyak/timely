@@ -5,14 +5,10 @@ import { throttle } from "lodash";
 
 const Groups = ({ contacts, setContacts }) => {
   const [timezoneURLS, setTimezoneURL] = useState([]);
-  console.log("Groups contact", contacts);
+  //console.log("Groups contact", contacts);
 
   useEffect(() => {
-    console.log("load");
-    // contacts.map((contact, i) => callforUpdate(contact.timezone, i));
-    // Promise.all(
-    //   contacts.map((contact, i) => anAsyncFunction(contact.timezone, i))
-    // );
+    //console.log("load");
     contacts.map((contact) =>
       setTimezoneURL([
         ...timezoneURLS,
@@ -21,14 +17,14 @@ const Groups = ({ contacts, setContacts }) => {
     );
   }, [contacts.length]);
 
-  console.log(timezoneURLS);
+  //console.log(timezoneURLS);
 
   Promise.allSettled(timezoneURLS.map((url) => axios.get(url))).then(
     (results) => {
       // (*)
       results.forEach((result, num) => {
         if (result.status == "fulfilled") {
-          console.log(`${timezoneURLS[num]}: ${result.value.status}`);
+          //console.log(`${timezoneURLS[num]}: ${result.value.status}`);
         }
         if (result.status == "rejected") {
           console(`${timezoneURLS[num]}: ${result.reason}`);
@@ -40,7 +36,7 @@ const Groups = ({ contacts, setContacts }) => {
   // const callforUpdate = (timezone, i) => {
   //   const updateGMTOffset = (newTimezone, i) => {
   //     if (contacts.length !== 0) {
-  //       console.log("retrieving", timezone);
+  //       //console.log("retrieving", timezone);
   //       const contactsNew = [...contacts];
   //       const contactToChange = { ...contactsNew[i] };
   //       contactToChange.convertedTime = parseInt(newTimezone) / 3600;
@@ -54,7 +50,7 @@ const Groups = ({ contacts, setContacts }) => {
   //       `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=${timezone}&fields=gmtOffset`
   //     )
   //     .then((response) => {
-  //       console.log(response.data.gmtOffset);
+  //       //console.log(response.data.gmtOffset);
   //       updateGMTOffset(response.data.gmtOffset, i);
   //     });
 

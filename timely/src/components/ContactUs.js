@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import * as emailjs from "emailjs-com";
-// import Layout from "../components/layout";
-import {
-  Button,
-  FormFeedback,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+
 class ContactForm extends Component {
   state = {
     user_name: "",

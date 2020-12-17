@@ -57,18 +57,6 @@ const CountryTimezoneSelect = ({ setDisableSubmit }) => {
         <div className='col-sm-4'></div>
       </div>
 
-      {/* <div className='country-select-menu'>
-        <select
-          name='country-select'
-          id='country-select'
-          onChange={(event) => handleCountrySelect(event)}
-        >
-          <option value=''>Please select a country.</option>
-
-          {countrySelect}
-        </select>
-      </div> */}
-
       <div className='zone-select-menu form-group row border'>
         <div className='col-sm-4'></div>
         <label htmlFor='zone-select' className='col-sm-1 col-form-label'>
@@ -86,17 +74,6 @@ const CountryTimezoneSelect = ({ setDisableSubmit }) => {
         </div>
         <div className='col-sm-4'></div>
       </div>
-
-      {/* <div className='zone-select-menu'>
-        <select
-          name='zone-select'
-          id='zone-select'
-          onChange={(event) => handleZoneSelect(event)}
-        >
-          <option value=''>Please select a timezone.</option>
-          {zoneSelect}
-        </select>
-      </div> */}
     </div>
   );
 };

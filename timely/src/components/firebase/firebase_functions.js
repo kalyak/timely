@@ -4,7 +4,7 @@ const db = fb.firestore();
 
 const retrieveContacts = (oldContacts, setContacts, userName, groupName) => {
   const q = (querySnapshot) => {
-    console.log(querySnapshot.docs);
+    //console.log(querySnapshot.docs);
     const contacts = querySnapshot.docs.map((contact, i) => {
       return {
         name: contact.data().name,
@@ -39,7 +39,7 @@ const addContact = (formData, userName, groupName) => {
       timezone: formData["zone-select"].value,
     })
     .then((docRef) => {
-      console.log("Document written with ID: ", formData.name.value);
+      //console.log("Document written with ID: ", formData.name.value);
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
@@ -61,7 +61,7 @@ const addUser = (formData) => {
       timezone: formData["zone-select"].value,
     })
     .then((docRef) => {
-      console.log("Document written with ID: ", formData.name.value);
+      //console.log("Document written with ID: ", formData.name.value);
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
@@ -69,12 +69,12 @@ const addUser = (formData) => {
 };
 
 const retrieveUser = (userName, setUserTime) => {
-  console.log(setUserTime);
+  //console.log(setUserTime);
   db.collection(`users`)
     .doc(userName)
     .get()
     .then((DocumentSnapshot) => {
-      console.log(DocumentSnapshot.data());
+      //console.log(DocumentSnapshot.data());
       // setCurrTimezone(DocumentSnapshot.data().timezone);
       setUserTime(DocumentSnapshot.data());
     })

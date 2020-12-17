@@ -10,7 +10,7 @@ const NewUser = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("New user");
+    //console.log("New user");
     all.addUser(event.target);
     history.push(PAGES.home);
   };
@@ -66,8 +66,6 @@ const NewUser = () => {
         </div>
         <div className='col-sm-5'></div>
       </div>
-
-      {/* <button disabled={submitDisabled}>Enter</button> */}
     </form>
   );
 };

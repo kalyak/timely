@@ -4,7 +4,7 @@ import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
 const Groups = ({ contacts, setContacts }) => {
   useEffect(() => {
-    console.log("Groups contact", contacts);
+    //console.log("Groups contact", contacts);
   }, [contacts.length]);
 
   const displayContacts = contacts.map((contact, i) => {
@@ -13,7 +13,7 @@ const Groups = ({ contacts, setContacts }) => {
         <td>{contact.name}</td>
         <td>{contact.country}</td>
         <td>
-          {contact.countrycode}{" "}
+          {contact.countrycode}
           {getUnicodeFlagIcon(contact.countrycode.toUpperCase())}
         </td>
         <td>{contact.timezone}</td>

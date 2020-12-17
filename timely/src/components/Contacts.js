@@ -16,21 +16,21 @@ const Contacts = ({
   const history = useHistory();
 
   useEffect(() => {
-    console.log("Contacts");
+    //console.log("Contacts");
     if (user !== "" && group !== "") {
       all.retrieveContacts(contacts, setContacts, user, group);
-      console.log("Contacts", contacts);
+      //console.log("Contacts", contacts);
     }
   }, [user, group]);
 
   const handleChange = (event) => {
     setGroup(event.target.value);
-    console.log(group);
+    //console.log(group);
     setContacts([]);
   };
 
   const handleCreation = () => {
-    console.log("new user");
+    //console.log("new user");
     history.push(PAGES.newContact);
   };
 
@@ -65,20 +65,20 @@ const Contacts = ({
                 contacts={contacts}
                 setContacts={setContacts}
                 currentTime={currentTime}
-              />
+              />{" "}
+              <div className='new-contact-button container row justify-content-end'>
+                <button
+                  onClick={(event) => {
+                    handleCreation(event);
+                  }}
+                >
+                  New Contact
+                </button>
+              </div>
             </div>
           ) : (
             <div className='no_contacts'>No contacts found.</div>
           )}
-          <div className='new-contact-button container row justify-content-end'>
-            <button
-              onClick={(event) => {
-                handleCreation(event);
-              }}
-            >
-              New Contact
-            </button>
-          </div>
         </div>
       ) : (
         ""

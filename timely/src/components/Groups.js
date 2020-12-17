@@ -4,10 +4,8 @@ import dayjs from "dayjs";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
 const Groups = ({ contacts, setContacts, currentTime }) => {
-  // console.log("Groups contact", contacts);
-
   const ConvertTime = (timezone) => {
-    console.log("retrieving", timezone);
+    //console.log("retrieving", timezone);
     return dayjs(currentTime).tz(timezone);
   };
 
@@ -25,7 +23,7 @@ const Groups = ({ contacts, setContacts, currentTime }) => {
         );
         contactToChange.convertedTime = convertTimeArray[i].format("hh:mm A");
         contactsNew[i] = contactToChange;
-        console.log(convertTimeArray[i].toString());
+        //console.log(convertTimeArray[i].toString());
       }
       setContacts(contactsNew);
     }
