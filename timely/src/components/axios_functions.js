@@ -1,23 +1,24 @@
-import Axios from "axios";
+import axios from "axios";
 
-const retrieveCountry = ({ setZones, countryCode }) => {
-  const q = (countryResults) => {
-    const zonenames = countryResults.map((zone) => zone.zoneName);
-    setZones(zonenames);
-  };
-
-  Axios.get(
-    `http://api.timezonedb.com/v2.1/list-time-zone?key=BSB22B2ARR6V&format=json&country=${countryCode}&fields=zoneName`
-  )
+const retrieveZones = (countryCode, q) => {
+  const key = process.env.REACT_APP_timezonedb;
+  console.log(countryCode, q);
+  axios
+    .get(
+      `http://api.timezonedb.com/v2.1/list-time-zone?key=${key}&format=json&country=${countryCode}&fields=zoneName`
+    )
     .then((response) => {
       console.log(response.data.zones[0].zoneName);
       q(response.data.zones);
     })
     .catch((error) => {
       console.log("Error");
+      console.log(
+        `http://api.timezonedb.com/v2.1/list-time-zone?key=${key}&format=json&country=${countryCode}&fields=zoneName`
+      );
     });
 };
 
-const timeAPI = { retrieveCountry };
+const timeAPI = { retrieveZones };
 
 export default timeAPI;

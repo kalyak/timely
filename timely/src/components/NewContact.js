@@ -1,9 +1,9 @@
 import { useState } from "react";
-import axios from "axios";
 import countryCodes from "./country_codes";
 import all from "./firebase/firebase_functions";
-import { NavLink, useHistory, withRouter } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import PAGES from "./navigation/route_constants";
+import timeAPI from "./axios_functions";
 
 const NewContact = ({ user, group }) => {
   const [zones, setZones] = useState([]);
@@ -18,47 +18,24 @@ const NewContact = ({ user, group }) => {
     setDisableSubmit(true);
 
     const countryCode = event.target.value;
-    // console.log(countryCode);
     const q = (zoneResults) => {
       const zonenames = zoneResults.map((zone) => zone.zoneName);
       setZones(zonenames);
     };
 
-    axios
-      .get(
-        `http://api.timezonedb.com/v2.1/list-time-zone?key=BSB22B2ARR6V&format=json&country=${countryCode}&fields=zoneName`
-      )
-      .then((response) => {
-        console.log(response.data.zones[0].zoneName);
-        q(response.data.zones);
-      })
-      .catch((error) => {
-        console.log("Error");
-      });
+    timeAPI.retrieveZones(countryCode, q);
   };
 
   const handleZoneSelect = (event) => {
     event.preventDefault();
     const timezone = event.target.value;
 
-    const qu = (timezoneData) => {
-      setSelectedZone(timezoneData.zoneName);
-      setDisableSubmit(false);
-    };
-
-    axios
-      .get(
-        `http://api.timezonedb.com/v2.1/get-time-zone?key=BSB22B2ARR6V&format=json&by=zone&zone=${timezone}&fields=zoneName`
-      )
-      .then((response) => {
-        console.log(response.data);
-        qu(response.data);
-      });
+    setSelectedZone(timezone);
+    setDisableSubmit(false);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event.target, user, group);
     all.addContact(event.target, user, group);
     history.push(PAGES.profile);
   };
