@@ -7,14 +7,14 @@ import timeAPI from "./axios_functions";
 
 const NewContact = ({ user, group }) => {
   const [zones, setZones] = useState([]);
-  const [selectedZone, setSelectedZone] = useState({});
+  // const [selectedZone, setSelectedZone] = useState({});
   const [submitDisabled, setDisableSubmit] = useState(true);
   const history = useHistory();
 
   const handleCountrySelect = (event) => {
     event.preventDefault();
     setZones(["Retrieving time zones..."]);
-    setSelectedZone({});
+    // setSelectedZone({});
     setDisableSubmit(true);
 
     const countryCode = event.target.value;
@@ -28,9 +28,9 @@ const NewContact = ({ user, group }) => {
 
   const handleZoneSelect = (event) => {
     event.preventDefault();
-    const timezone = event.target.value;
+    // const timezone = event.target.value;
 
-    setSelectedZone(timezone);
+    // setSelectedZone(timezone);
     setDisableSubmit(false);
   };
 

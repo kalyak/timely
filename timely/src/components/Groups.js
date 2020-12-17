@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import dayjs from "dayjs";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NavBar from "./components/navigation/NavBar";
 import SwitchRoute from "./components/navigation/SwitchRoute";
-import dayjs from "dayjs";
 import TimeNow from "./components/TimeNow";
 
 const App = () => {

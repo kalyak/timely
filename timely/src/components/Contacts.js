@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import all from "./firebase/firebase_functions";
 import Groups from "./Groups";
 import PAGES from "./navigation/route_constants";
-import TimeNow from "./TimeNow";
 const Contacts = ({
   user,
   setGroup,
