@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import dayjs from "dayjs";
+import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
 const Groups = ({ contacts, setContacts, currentTime }) => {
   // console.log("Groups contact", contacts);
@@ -34,7 +35,10 @@ const Groups = ({ contacts, setContacts, currentTime }) => {
       <tr key={contact.name}>
         <td>{contact.name}</td>
         <td>{contact.country}</td>
-        <td>{contact.countrycode}</td>
+        <td>
+          {contact.countrycode}{" "}
+          {getUnicodeFlagIcon(contact.countrycode.toUpperCase())}
+        </td>
         <td>{contact.timezone}</td>
         <td>{contact.gmt}</td>
         <td>{contact.latestGmt}</td>

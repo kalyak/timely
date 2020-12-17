@@ -70,7 +70,7 @@ const What = ({ user, contacts, setContacts, currentTime }) => {
 
   return (
     <div>
-      <h2>DAYJS</h2>
+      <h2>Convert Time</h2>
 
       <form>
         <label htmlFor='date-picker'>Convert from: </label>
