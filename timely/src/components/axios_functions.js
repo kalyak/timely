@@ -5,7 +5,7 @@ const retrieveZones = (countryCode, q) => {
   //console.log(countryCode, q);
   axios
     .get(
-      `http://api.timezonedb.com/v2.1/list-time-zone?key=${key}&format=json&country=${countryCode}&fields=zoneName`
+      `https://api.timezonedb.com/v2.1/list-time-zone?key=${key}&format=json&country=${countryCode}&fields=zoneName`
     )
     .then((response) => {
       //console.log(response.data.zones[0].zoneName);

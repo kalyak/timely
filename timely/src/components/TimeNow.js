@@ -15,10 +15,16 @@ const TimeNow = ({ user, currentTime, setCurrentTime, currTimezone }) => {
   return (
     <div className='container border text-center'>
       <div className='row align-self-start'>
-        <div className='col'>Current User: {user}</div>{" "}
+        <div className='col'>
+          Current User: <span className='font-weight-bold'>{user}</span>
+        </div>
         <div className='col'>
           GMT:
           <span className='font-weight-bold'>{currentTime.gmt}</span>
+        </div>
+        <div className='col'>
+          Timezone:
+          <span className='font-weight-bold'>{currTimezone}</span>
         </div>
       </div>
       <div className='row mt-3'>

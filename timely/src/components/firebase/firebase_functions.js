@@ -69,7 +69,7 @@ const addUser = (formData) => {
 };
 
 const retrieveUser = (userName, setUserTime) => {
-  //console.log(setUserTime);
+  // console.log(setUserTime);
   db.collection(`users`)
     .doc(userName)
     .get()

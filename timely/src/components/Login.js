@@ -18,7 +18,7 @@ const Login = ({
     setContacts([]);
 
     const setUserTime = (data) => {
-      //console.log(setUserEmail);
+      console.log("setUserEmail", setUserEmail);
       setUserEmail(data.email);
       setCurrTimezone(data.timezone);
     };
