@@ -22,10 +22,10 @@ const TimeNow = ({ user, currentTime, setCurrentTime, currTimezone }) => {
           GMT:
           <span className='font-weight-bold'>{currentTime.gmt}</span>
         </div>
-        <div className='col'>
+        {/* <div className='col'>
           Timezone:
           <span className='font-weight-bold'>{currTimezone}</span>
-        </div>
+        </div> */}
       </div>
       <div className='row mt-3'>
         <div className='col'>
