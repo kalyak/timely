@@ -1,4 +1,4 @@
-# Project-2
+# SEI-26 / Kalya Kusumadi / Project-2: Timely
 
 ## Inspiration:
 Discord server with multinational members, always having trouble with scheduling of games and movie nights.
