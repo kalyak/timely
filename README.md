@@ -1,5 +1,7 @@
 # SEI-26 / Kalya Kusumadi / Project-2: Timely
 
+Access it at https://timely.kkusumad.vercel.app/
+
 # Timely. The time of your world at your fingertips.
 
 In this age of travel and interconnectivity, we are having our personal and professional network spread around the global. Combined with the current travel restrictions worldwide, instead of being able to travel to other countries to meet colleagues, friends and family face to face, we have to turn to holding meetings, game nights, heart to heart talks online. 
@@ -31,7 +33,6 @@ But with everyone located all around the world, scheduling these much needed tim
 ## Wireframe
 https://www.figma.com/file/7wp3g1gYo4YWVo14v3G41B/GA-Project-2
 
-<<<<<<< HEAD
 <img src="./images/Screenshot%202020-12-11%20at%203.30.46%20PM.png" alt="Contact Page" width="500px">  
   
 <img src="./images/Screenshot%202020-12-11%20at%2011.05.31%20AM.png" alt="Time Conversion Page" width="500px">
@@ -76,7 +77,3 @@ Timezonedb was used for the retrieval of the different timezone names based on t
 ---
 
  ## References
-=======
-## Pre Project Exercise
-https://docs.google.com/document/d/e/2PACX-1vSce0b6jtLfPve5fgH01332skdqTlBF3WfubUplpMeXqlIkpjQ12Py6eGagE8YfXdR8n6Yi1_BjSbCe/pub
->>>>>>> 130f905fa7a3ed53cca1aa8986e85da445706bf8
