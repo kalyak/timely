@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PAGES from "./route_constants";
 
 const NavBar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-      <a className='navbar-brand' href='#'>
+      <a className='navbar-brand' as={Link} to={PAGES.home}>
         Timely
       </a>
       <button
